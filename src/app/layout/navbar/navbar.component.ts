@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  navigateToProductCategory(category: any): void {
+  navigateToProductCategory(category: string): void {
     this.router.navigate([`/product-categorys`, category]);
   }
 
