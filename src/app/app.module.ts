@@ -7,6 +7,8 @@ import { ProductCategoriesComponent } from './product-categories/product-categor
 import { AllProductsComponent } from './all-products/all-products.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { InteriorProductComponent } from './all-products/interior-product/interior-product.component';
+import { ProductCategoryComponent } from './product-category/product-category.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { InteriorProductComponent } from './all-products/interior-product/interi
     ProductCategoriesComponent,
     AllProductsComponent,
     NavbarComponent,
-    InteriorProductComponent
+    InteriorProductComponent,
+    ProductCategoryComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

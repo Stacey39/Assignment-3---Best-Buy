@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { of } from 'rxjs';
+import { Observable } from 'rxjs/internal/Observable';
 
 import { Product } from './../models/product.model';
 
@@ -60,8 +62,8 @@ export class ProductService {
 
   constructor() { }
 
-  queryProductList(keyword: string): Product[] {
-    return this.products.filter((product) => product.name.includes(keyword) || product.category.includes(keyword));
+  queryProductList(keyword: string): Observable<Product[]> {
+    return of(this.products.filter((product) => product.name.includes(keyword) || product.category.includes(keyword)));
   }
 
 }

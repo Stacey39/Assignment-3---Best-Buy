@@ -22,11 +22,13 @@
                 </li>
                 <li class="nav-item">
 
-                  <select class="form-select"onchange="if (this.value) window.location.href=this.value" >
-                    <option>Select a Category...</option>
-                    <option value="product-categories.html">Tvs</option>
-                    <option  value="product-categories.html">Computers</option>
-                    <option  value="product-categories.html">Appliances</option>
+                  <select class="form-select"
+                    [ngModel]="selectedCategory"
+                    (ngModelChange)="navigateToProductCategory($event)">
+                    <option [value]="'none'">Select a Category...</option>
+                    <option [value]="'TVs'">TVs</option>
+                    <option [value]="'Computers'">Computers</option>
+                    <option [value]="'Appliances'">Appliances</option>
                 </select>
 
             </li>

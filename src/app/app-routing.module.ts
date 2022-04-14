@@ -1,3 +1,4 @@
+import { ProductCategoryComponent } from './product-category/product-category.component';
 import { InteriorProductComponent } from './all-products/interior-product/interior-product.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -8,7 +9,16 @@ import { AllProductsComponent } from './all-products/all-products.component';
 const routes: Routes = [
   {
     path: 'product-categorys',
-    component: ProductCategoriesComponent,
+    children: [
+      {
+        path: '',
+        component: ProductCategoriesComponent,
+      },
+      {
+        path: ':category',
+        component: ProductCategoryComponent,
+      }
+    ]
   },
   {
     path: 'all-products',
