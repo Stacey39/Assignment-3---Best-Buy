@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ProductService } from './../shared/services/product.service';
 import { Product } from './../shared/models/product.model';
 import { Observable } from 'rxjs/internal/Observable';
@@ -14,11 +15,16 @@ export class AllProductsComponent implements OnInit {
   products$: Observable<Product[]>;
 
   constructor(
-    private productService: ProductService
+    private productService: ProductService,
+    private rouer: Router
   ) {
     this.products$ = this.productService.queryProductList().pipe(map((products) => products.map((product) => ({ ...product,  photo: `/assets/img/${product.photo}`}))));
   }
 
   ngOnInit(): void {}
+
+  viewProductDetail(id: number) {
+    this.rouer.navigate(['/all-products', id])
+  }
 
 }
