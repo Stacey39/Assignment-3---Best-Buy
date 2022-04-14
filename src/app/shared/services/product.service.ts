@@ -62,8 +62,13 @@ export class ProductService {
 
   constructor() { }
 
-  queryProductList(keyword: string): Observable<Product[]> {
-    return of(this.products.filter((product) => product.name.includes(keyword) || product.category.includes(keyword)));
+  queryProductList(keyword?: string): Observable<Product[]> {
+    if (keyword) {
+      return of(this.products.filter((product) => product.name.includes(keyword) || product.category.includes(keyword)));
+    } else {
+      return of(this.products);
+
+    }
   }
 
 }

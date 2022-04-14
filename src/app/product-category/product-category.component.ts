@@ -24,7 +24,7 @@ export class ProductCategoryComponent implements OnInit {
         .pipe(
           pluck('category'),
           switchMap((category) => this.productService.queryProductList(category)),
-          map((products) => products.map((prodcuct) => ( { ...prodcuct, photo: `/assets/img/${prodcuct.photo}`})) )
+          map((products) => products.map((product) => ( { ...product, photo: `/assets/img/${product.photo}`})) )
         );
   }
 
