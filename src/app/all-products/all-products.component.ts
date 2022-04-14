@@ -16,7 +16,7 @@ export class AllProductsComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private rouer: Router
+    private router: Router
   ) {
     this.products$ = this.productService.queryProductList().pipe(map((products) => products.map((product) => ({ ...product,  photo: `/assets/img/${product.photo}`}))));
   }
@@ -24,7 +24,7 @@ export class AllProductsComponent implements OnInit {
   ngOnInit(): void {}
 
   viewProductDetail(id: number) {
-    this.rouer.navigate(['/all-products', id])
+    this.router.navigate(['/all-products', id])
   }
 
 }

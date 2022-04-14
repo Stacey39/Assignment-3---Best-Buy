@@ -1,7 +1,7 @@
 import { Product } from './../shared/models/product.model';
 import { ProductService } from './../shared/services/product.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { map, Observable, pluck, switchMap } from 'rxjs';
 
 @Component({
@@ -16,6 +16,7 @@ export class ProductCategoryComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private productService: ProductService
   ) {
     this.categoryTitle$ = this.route.params.pipe(pluck('category'));
@@ -28,9 +29,10 @@ export class ProductCategoryComponent implements OnInit {
         );
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
-
+  viewProductDetail(id: number) {
+    this.router.navigate(['/all-products', id])
   }
 
 }
